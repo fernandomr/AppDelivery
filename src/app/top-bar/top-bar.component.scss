@@ -1,0 +1,38 @@
+.top-bar{
+ --background: black !important;
+}
+
+.title{
+  color: orange;
+  display: flex;
+  font-weight: bold;
+  padding: 2px;
+  width: 106%;
+}
+
+.title:hover{
+  cursor: pointer;
+}
+
+.image-logo{
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  margin-left: 5px;
+  border-radius: 100%;
+  border: 2.8px solid orange;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.cart {
+  display:block;
+  background-color: transparent;
+  border-radius: 100%;
+}
+
+.icon-cart{
+  font-size: 30px; 
+  margin: auto;
+}
+

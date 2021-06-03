@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: 'product', loadChildren: () => import('./product/product.module').then( m => m.ProductPageModule)},
+  { path: 'select-product', loadChildren: () => import('./select-product/select-product.module').then( m => m.SelectProductPageModule)},  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'cart-final',
+    loadChildren: () => import('./cart-final/cart-final.module').then( m => m.CartFinalPageModule)
   },
+  {
+    path: 'cart-confirm',
+    loadChildren: () => import('./cart-confirm/cart-confirm.module').then( m => m.CartConfirmPageModule)
+  },
+
 ];
 
 @NgModule({
