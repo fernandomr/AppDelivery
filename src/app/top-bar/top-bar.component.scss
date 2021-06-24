@@ -36,3 +36,23 @@
   margin: auto;
 }
 
+.span-brasa{
+  color: white; 
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .span-brasa{
+    color: black; 
+    font-size: 16px;
+  }
+
+  .image-logo{
+    border: 2.8px solid rgb(104, 67, 0);
+  }
+
+  .title{
+    color: rgb(104, 67, 0);
+  }
+}
+

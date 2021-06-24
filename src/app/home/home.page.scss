@@ -12,5 +12,8 @@
 .text-content{
   font-weight: 900;
   color: black;
-  font-family: cursive;
+}
+
+@media (prefers-color-scheme: dark) {
+
 }
