@@ -2,12 +2,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-card class="products" routerLink="/product">
+    <ion-card class="products" (click)="goToMarmitas()">
       <ion-card-content class="text-content">
         MARMITAS
       </ion-card-content>
     </ion-card>
-    <ion-card class="products">
+    <ion-card class="products" (click)="goToBebidas()">
       <ion-card-content class="text-content">
         BEBIDAS
       </ion-card-content>
