@@ -26,9 +26,6 @@ export class ProductPage implements OnInit {
     if (this.routeFlag == 1) {
       this.getMarmitaSize();
     }
-    else {
-      this.getBebidaSize();
-    }
   }
 
   /****************  GET ALL MARMITAS SIZE  ****************/
@@ -38,21 +35,9 @@ export class ProductPage implements OnInit {
     })
   }
 
-  /*************** GET ALL BEBIDAS SIZE *******************/
-  getBebidaSize() {
-    this.getSizeSvc.getAllSize().subscribe(result => {
-      this.productBebidaSizeLst = result
-    })
-  }
-
   /******************* ROTAS MARMITAS ******************/
   goToSelectProductMarmita(size) {
     this.router.navigateByUrl('select-product/marmita/' + size)
-  }
-
-  /******************* ROTAS BEBIDAS ******************/
-  goToSelectProductBebida(size) {
-    this.router.navigateByUrl('select-product/bebida/' + size)
   }
 
 }

@@ -2,7 +2,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-card class="card-food" *ngFor="let p of productSpecific">
+    <ion-card class="card-food" *ngFor="let p of productLst, let i = index">
       <ion-item class="item-food">
         <img slot="start" src="https://source.unsplash.com/random/100x100" class="img-food">
         <ion-card-header>
@@ -12,7 +12,8 @@
           </ion-card-subtitle>
         </ion-card-header>
 
-        <ion-checkbox fill="outline" slot="end" color="primary"></ion-checkbox>
+        <ion-checkbox fill="outline" slot="end" color="primary" id="checkFood" (click)="getAddToCart(p.price, p)">
+        </ion-checkbox>
       </ion-item>
 
       <ion-card-content>
@@ -28,7 +29,7 @@
     Total: R{{ValorTotal | currency}}
   </ion-title>
 </div>
-<ion-toolbar class="tool-advance">
+<ion-toolbar class="tool-advance" (click)="goToCart()">
   <ion-title routerLink="/cart" class="advance">
     AVANÇAR
   </ion-title>

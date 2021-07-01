@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   }
 
   goToBebidas() {
-    this.router.navigateByUrl('product/bebidas/2');
+    this.router.navigateByUrl('select-product/bebidas/select-bebidas');
   }
 
 }

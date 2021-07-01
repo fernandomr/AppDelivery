@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonCheckbox } from '@ionic/angular';
+import { Pedido } from '../models/pedido.model';
 
 import { Product } from '../models/product.model';
 import { SelectProductService } from '../service/product/select-product.service';
@@ -11,6 +13,7 @@ import { SelectProductService } from '../service/product/select-product.service'
 })
 export class SelectProductPage implements OnInit {
   productLst: Product[];
+  pedidoLst: Pedido[];
   routeFlag: string = '';
   typeFlag: string = '';
   ValorTotal = 0;
@@ -41,65 +44,64 @@ export class SelectProductPage implements OnInit {
     this.typeFlag = this.actRoute.snapshot.paramMap.get("product-sel")
 
     this.getAllProducts(this.routeFlag, this.typeFlag)
-    this.getValorTotal();
+
+    this.ValorTotal = 0;
   }
 
   getAllProducts(size, type) {
     if (type == 'marmita') {
-      this.selectProductSvc.getAllProductsMarmita().subscribe(
+      this.selectProductSvc.getAllProductsMarmita(size).subscribe(
         result => {
-
           this.productLst = result
-
-          //this.cleanArray();
-
-          var i = 0
-          this.productLst.forEach(p => {
-            if (this.productLst[i].size == size && this.productLst[i].type == type) {
-              console.log(size, type, this.productLst[i].size, this.productLst[i].type)
-              this.productSpecific[i] = this.productLst[i]
-              console.log(this.productSpecific[i])
-            }
-            i++
-          })
-
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
         });
     }
-    else if (type == 'bebida') {
+    else if (type == 'bebidas') {
       this.selectProductSvc.getAllProductsBebida().subscribe(
         result => {
-
           this.productLst = result
-
-          //this.cleanArray();
-
-          var i = 0
-          this.productLst.forEach(p => {
-            if (this.productLst[i].size == size && this.productLst[i].type == type) {
-              console.log(size, type, this.productLst[i].size, this.productLst[i].type)
-              this.productSpecific[i] = this.productLst[i]
-              console.log(this.productSpecific[i])
-            }
-            i++
-          })
-
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
         });
     }
-
   }
 
-  /*
-  cleanArray() {
-    this.productSpecific = []
-  }*/
+  getAddToCart(valor, i) {
 
-  getValorTotal() {
+    console.log(i);
+    let checkbox = <HTMLInputElement>document.getElementById('checkFood')
+
+    if (checkbox.checked == true) {
+      this.ValorTotal -= valor;
+    }
+    else {
+      this.ValorTotal += valor;
+    }
+
+
+    /*
+    if (this.pedidoLst != undefined) {
+      let checkbox = <HTMLInputElement>document.getElementById('checkFood')
+      this.pedidoLst.forEach((p) => {
+        if (checkbox.checked) {
+          p.products += i;
+          this.ValorTotal -= valor;
+          console.log(p.products)
+        }
+        else {
+          p.products = i;
+          this.ValorTotal += valor;
+          console.log(p.products)
+        }
+
+      });
+    }*/
+  }
+
+  goToCart() {
 
   }
 

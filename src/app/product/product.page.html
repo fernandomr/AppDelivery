@@ -9,13 +9,3 @@
     </ion-card>
   </ion-list>
 </ion-content>
-
-<ion-content [fullscreen]="true" *ngIf="routeFlag == 2">
-  <ion-list>
-    <ion-card class="products" (click)="goToSelectProductBebida(b.size)" *ngFor="let b of productBebidaSizeLst">
-      <ion-card-content class="text-content">
-        BEBIDA {{b.size}}
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
-</ion-content>
