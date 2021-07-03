@@ -12,7 +12,8 @@
           </ion-card-subtitle>
         </ion-card-header>
 
-        <ion-checkbox fill="outline" slot="end" color="primary" id="checkFood" (click)="getAddToCart(p.price, p)">
+        <ion-checkbox fill="outline" slot="end" color="primary" id="checkFood" [(ngModel)]="checkFood"
+          (click)="getAddToCart()">
         </ion-checkbox>
       </ion-item>
 

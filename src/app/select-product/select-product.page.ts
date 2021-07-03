@@ -17,6 +17,7 @@ export class SelectProductPage implements OnInit {
   routeFlag: string = '';
   typeFlag: string = '';
   ValorTotal = 0;
+  checkFood: boolean;
   productSpecific = [
     {
       "id": 0,
@@ -69,36 +70,8 @@ export class SelectProductPage implements OnInit {
     }
   }
 
-  getAddToCart(valor, i) {
+  getAddToCart() {
 
-    console.log(i);
-    let checkbox = <HTMLInputElement>document.getElementById('checkFood')
-
-    if (checkbox.checked == true) {
-      this.ValorTotal -= valor;
-    }
-    else {
-      this.ValorTotal += valor;
-    }
-
-
-    /*
-    if (this.pedidoLst != undefined) {
-      let checkbox = <HTMLInputElement>document.getElementById('checkFood')
-      this.pedidoLst.forEach((p) => {
-        if (checkbox.checked) {
-          p.products += i;
-          this.ValorTotal -= valor;
-          console.log(p.products)
-        }
-        else {
-          p.products = i;
-          this.ValorTotal += valor;
-          console.log(p.products)
-        }
-
-      });
-    }*/
   }
 
   goToCart() {

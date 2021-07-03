@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class SelectProductService {
-  baseURLMarmita = `http://localhost:3000/api/products?type=marmita&size=`
+  baseURLMarmita = `http://localhost:3000/api/products?type=marmita&status=1&size=`
   baseURLBebida = `http://localhost:3000/api/products?type=bebida&status=1`
 
   constructor(private http: HttpClient) { }
