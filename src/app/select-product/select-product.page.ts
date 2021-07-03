@@ -5,7 +5,6 @@ import { Pedido } from '../models/pedido.model';
 
 import { Product } from '../models/product.model';
 import { SelectProductService } from '../service/product/select-product.service';
-import transformProductImageUrl from '../utils/transformImageUrl';
 
 @Component({
   selector: 'app-select-product',
@@ -15,19 +14,19 @@ import transformProductImageUrl from '../utils/transformImageUrl';
 export class SelectProductPage implements OnInit {
   productLst: Product[];
   pedidoLst: Pedido[];
-  routeFlag = '';
-  typeFlag = '';
+  routeFlag: string = '';
+  typeFlag: string = '';
   ValorTotal = 0;
   checkFood: boolean[] = [];
   productSpecific = [
     {
-      id: 0,
-      name: '',
-      price: 0,
-      type: '',
-      size: '',
-      description: '',
-      image: ''
+      "id": 0,
+      "name": "",
+      "price": 0,
+      "type": "",
+      "size": "",
+      "description": "",
+      "image": ""
     }
   ];
 
@@ -42,41 +41,32 @@ export class SelectProductPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.routeFlag = this.actRoute.snapshot.paramMap.get('sizeid');
-    this.typeFlag = this.actRoute.snapshot.paramMap.get('product-sel');
+    this.routeFlag = this.actRoute.snapshot.paramMap.get("sizeid");
+    this.typeFlag = this.actRoute.snapshot.paramMap.get("product-sel");
 
-    this.getAllProducts(this.routeFlag, this.typeFlag);
+    this.getAllProducts(this.routeFlag, this.typeFlag)
 
     this.ValorTotal = 0;
   }
 
-<<<<<<< HEAD
 
   getAllProducts(size, type) {
     if (type == 'marmita') {
-=======
-  transformImageUrl(imageUrl: string): string {
-    return transformProductImageUrl(imageUrl);
-  }
-
-  getAllProducts(size: string, type: string) {
-    if (type === 'marmita') {
->>>>>>> 54860c6d7220e420d12108d9be8dab9aed9491e5
       this.selectProductSvc.getAllProductsMarmita(size).subscribe(
         result => {
           this.productLst = result;
         },
         err => {
-          console.log('Não foi possivel pegar a lista de produtos');
+          console.log('Não foi possivel pegar a lista de produtos')
         });
     }
-    else if (type === 'bebidas') {
+    else if (type == 'bebidas') {
       this.selectProductSvc.getAllProductsBebida().subscribe(
         result => {
           this.productLst = result;
         },
         err => {
-          console.log('Não foi possivel pegar a lista de produtos');
+          console.log('Não foi possivel pegar a lista de produtos')
         });
     }
   }
@@ -85,6 +75,7 @@ export class SelectProductPage implements OnInit {
     if (this.checkFood[i] == undefined) {
       this.checkFood[i] = false;
     }
+
     if (this.checkFood[i] == false) {
       this.ValorTotal += valor;
     }
