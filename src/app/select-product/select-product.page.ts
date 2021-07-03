@@ -19,22 +19,11 @@ export class SelectProductPage implements OnInit {
   typeFlag: string = '';
   ValorTotal = 0;
   checkFood: boolean[] = [];
-  productSpecific = [
-    {
-      "id": 0,
-      "name": "",
-      "price": 0,
-      "type": "",
-      "size": "",
-      "description": "",
-      "image": ""
-    }
-  ];
 
   constructor(
     private selectProductSvc: SelectProductService,
     public router: Router,
-    public actRoute: ActivatedRoute
+    public actRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -50,11 +39,18 @@ export class SelectProductPage implements OnInit {
     this.ValorTotal = 0;
   }
 
+  transformImageUrl(imageUrl: string): string {
+    return transformProductImageUrl(imageUrl);
+  }
+
+
   getAllProducts(size, type) {
     if (type == 'marmita') {
       this.selectProductSvc.getAllProductsMarmita(size).subscribe(
         result => {
           this.productLst = result;
+
+          console.log(this.productLst)
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
@@ -85,7 +81,11 @@ export class SelectProductPage implements OnInit {
   }
 
   goToCart() {
-
+    for (let i = 0; i < this.productLst.length; i++) {
+      if (this.checkFood[i] == true) {
+        console.log(this.productLst[i])
+      }
+    }
   }
 
 }
