@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IonCheckbox } from '@ionic/angular';
+//import { IonCheckbox } from '@ionic/angular';
 import { Pedido } from '../models/pedido.model';
 
 import { Product } from '../models/product.model';
 import { SelectProductService } from '../service/product/select-product.service';
+import transformProductImageUrl from '../utils/transformImageUrl';
 
 @Component({
   selector: 'app-select-product',
@@ -48,7 +49,6 @@ export class SelectProductPage implements OnInit {
 
     this.ValorTotal = 0;
   }
-
 
   getAllProducts(size, type) {
     if (type == 'marmita') {
