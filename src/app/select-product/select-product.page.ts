@@ -17,7 +17,7 @@ export class SelectProductPage implements OnInit {
   routeFlag: string = '';
   typeFlag: string = '';
   ValorTotal = 0;
-  checkFood: boolean;
+  checkFood: boolean[] = [];
   productSpecific = [
     {
       "id": 0,
@@ -49,11 +49,12 @@ export class SelectProductPage implements OnInit {
     this.ValorTotal = 0;
   }
 
+
   getAllProducts(size, type) {
     if (type == 'marmita') {
       this.selectProductSvc.getAllProductsMarmita(size).subscribe(
         result => {
-          this.productLst = result
+          this.productLst = result;
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
@@ -62,7 +63,7 @@ export class SelectProductPage implements OnInit {
     else if (type == 'bebidas') {
       this.selectProductSvc.getAllProductsBebida().subscribe(
         result => {
-          this.productLst = result
+          this.productLst = result;
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
@@ -70,8 +71,16 @@ export class SelectProductPage implements OnInit {
     }
   }
 
-  getAddToCart() {
-
+  getAddToCart(valor, i) {
+    if (this.checkFood[i] == undefined) {
+      this.checkFood[i] = false;
+    }
+    if (this.checkFood[i] == false) {
+      this.ValorTotal += valor;
+    }
+    else {
+      this.ValorTotal -= valor;
+    }
   }
 
   goToCart() {
