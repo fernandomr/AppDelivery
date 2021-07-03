@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { IonCheckbox } from '@ionic/angular';
-import { Pedido } from '../models/pedido.model';
 
 import { Product } from '../models/product.model';
+import { Products } from '../models/products.model';
 import { SelectProductService } from '../service/product/select-product.service';
 import transformProductImageUrl from '../utils/transformImageUrl';
 
@@ -14,7 +13,7 @@ import transformProductImageUrl from '../utils/transformImageUrl';
 })
 export class SelectProductPage implements OnInit {
   productLst: Product[];
-  pedidoLst: Pedido[];
+  products: Products;
   routeFlag: string = '';
   typeFlag: string = '';
   ValorTotal = 0;
@@ -24,7 +23,10 @@ export class SelectProductPage implements OnInit {
     private selectProductSvc: SelectProductService,
     public router: Router,
     public actRoute: ActivatedRoute,
-  ) { }
+  ) {
+    this.products = new Products();
+    this.products.productsLst = new Array<Product>();
+  }
 
   ngOnInit() {
 
@@ -49,8 +51,6 @@ export class SelectProductPage implements OnInit {
       this.selectProductSvc.getAllProductsMarmita(size).subscribe(
         result => {
           this.productLst = result;
-
-          console.log(this.productLst)
         },
         err => {
           console.log('Não foi possivel pegar a lista de produtos')
@@ -83,7 +83,7 @@ export class SelectProductPage implements OnInit {
   goToCart() {
     for (let i = 0; i < this.productLst.length; i++) {
       if (this.checkFood[i] == true) {
-        console.log(this.productLst[i])
+        this.products.productsLst[i] = this.productLst[i];
       }
     }
   }

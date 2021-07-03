@@ -1,8 +1,8 @@
-import { Product } from "./product.model"
+import { Products } from "./products.model"
 
 export class Pedido {
     perdido_id: number
-    products: Product[];
+    products: Products[];
 
     data_pedido: Date;
 

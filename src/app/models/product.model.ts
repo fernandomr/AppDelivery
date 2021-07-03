@@ -7,5 +7,4 @@ export class Product {
     description: string
     status: boolean
     image: string
-    qtd: number
 }
