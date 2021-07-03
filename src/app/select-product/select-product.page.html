@@ -4,7 +4,9 @@
   <ion-list>
     <ion-card class="card-food" *ngFor="let p of productLst, let i = index">
       <ion-item class="item-food">
-        <img slot="start" src="https://source.unsplash.com/random/100x100" class="img-food">
+        <img slot="start" [src]="transformImageUrl(p.image)" onerror="this.src='../../assets/images/dump3.png'"
+          [alt]="p.name" class="img-food">
+        <!-- <img slot="start" src="https://source.unsplash.com/random/100x100" class="img-food"> -->
         <ion-card-header>
           <ion-card-title class="title-food">{{p.name}}</ion-card-title>
           <ion-card-subtitle class="text-food">Valor: <span style="color: rgb(0, 202, 0);">R{{p.price |
