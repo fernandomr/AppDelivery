@@ -1,0 +1,46 @@
+<app-top-bar></app-top-bar>
+
+<ion-content>
+  <ion-list>
+    
+    <ion-card>        
+      <ion-item>
+        <ion-icon name="create" slot="end"></ion-icon>
+        <ion-icon name="trash" slot="end"></ion-icon>
+        <ion-card-header>
+          <ion-card-subtitle>Produto 1 </ion-card-subtitle>
+          <ion-card-subtitle>Valor: </ion-card-subtitle>
+        </ion-card-header>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>        
+      <ion-item>
+        <ion-icon name="create" slot="end"></ion-icon>
+        <ion-icon name="trash" slot="end"></ion-icon>
+        <ion-card-header>
+          <ion-card-subtitle>Produto 2 </ion-card-subtitle>
+          <ion-card-subtitle>Valor: </ion-card-subtitle>
+        </ion-card-header>
+      </ion-item>
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+
+<div class="line">
+  <ion-title slot="end" style="font-size: 16px; font-weight: bold; margin: 10px;">
+    Total: R$ 15,00
+  </ion-title>
+</div>
+<ion-toolbar class="tool-advance-continue">
+  <ion-title routerLink="/home" class="advance-continue" >
+    CONTINUAR COMPRANDO
+  </ion-title>
+</ion-toolbar>
+<ion-toolbar class="tool-advance">
+  <ion-title routerLink="/cart-confirm" class="advance" >
+    FINALIZAR PEDIDO
+  </ion-title>
+</ion-toolbar>
+
