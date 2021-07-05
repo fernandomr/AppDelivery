@@ -9,18 +9,19 @@
         <ion-card-subtitle>Valor: </ion-card-subtitle>
       </ion-card-header>
     </ion-card>
-    
+
     <ion-card>
       <ion-item>
-        <ion-label>Adicionais</ion-label>
+        <ion-label>Opcionais</ion-label>
       </ion-item>
     </ion-card>
 
     <ion-card>
       <ion-item>
-        <ion-icon name="remove-circle" slot="end"></ion-icon>
-        <ion-icon name="add-circle" slot="end"></ion-icon>
-        <ion-label>Quantidade</ion-label>
+        <ion-icon class="button-select" name="remove-circle" slot="end" (click)="removeItem()"></ion-icon>
+        <ion-label>{{products.amount}}</ion-label>
+        <ion-icon class="button-select" name="add-circle" slot="end" (click)="addItem()"></ion-icon>
+        <ion-label slot="start">Quantidade</ion-label>
       </ion-item>
     </ion-card>
 
@@ -29,21 +30,17 @@
         <ion-label position="floating">Observações</ion-label>
         <ion-textarea style="padding: 5px;"></ion-textarea>
       </ion-item>
-  
-      <ion-textarea></ion-textarea>
     </ion-card>
   </ion-list>
-
 </ion-content>
 
 <div class="line">
-  <ion-title slot="end" style="font-size: 16px; font-weight: bold; margin: 10px;">
-    Total: R$ 15,00
+  <ion-title slot="end" class="valor-total">
+    Total: R$ {{ValorTotal | currency}}
   </ion-title>
 </div>
 <ion-toolbar class="tool-advance">
-  <ion-title routerLink="/cart-final" class="advance" >
+  <ion-title routerLink="/cart-final" class="advance">
     AVANÇAR
   </ion-title>
 </ion-toolbar>
-

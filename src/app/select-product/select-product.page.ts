@@ -78,6 +78,8 @@ export class SelectProductPage implements OnInit {
     else {
       this.ValorTotal -= valor;
     }
+
+    localStorage.valorTotal = this.ValorTotal;
   }
 
   goToCart() {
@@ -86,6 +88,9 @@ export class SelectProductPage implements OnInit {
         this.products.productsLst[i] = this.productLst[i];
       }
     }
+
+    localStorage.productsSelect = this.products.productsLst
+    console.log(localStorage)
   }
 
 }

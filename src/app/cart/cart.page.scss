@@ -17,6 +17,18 @@
   border-top: 1px solid rgb(187, 187, 187);
 }
 
-@media (prefers-color-scheme: dark) {
+.button-select:hover{
+  cursor: pointer;
+}
 
+.valor-total{
+  font-size: 16px; 
+  font-weight: bold; 
+  margin: 10px
+}
+
+@media (prefers-color-scheme: dark) {
+  .valor-total{
+    color: white;
+  }
 }
